@@ -155,9 +155,9 @@ VITE_API_URL=
 
 7. URLs de déploiement
 
-| Service | URL |
-|---|---|
-| Frontend (Vercel) | https://votre-projet.vercel.app |
-| Backend (Render) | https://votre-backend.onrender.com |
+
+- Frontend/Vercel | https://votre-projet.vercel.app |
+
+- Backend/Render | https://projet-3-gkyl.onrender.com | 
 
 ---
