@@ -1,0 +1,30 @@
+{
+  "name": "Avis et alertes – Ville de Montréal",
+  "short_name": "Alertes MTL",
+  "description": "Consultez les avis et alertes émis par la Ville de Montréal : travaux, fermetures, avis d'ébullition et plus.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "theme_color": "#003DA5",
+  "background_color": "#ffffff",
+  "lang": "fr",
+  "icons": [
+    {
+      "src": "/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/icon-512-maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

@@ -1,0 +1,110 @@
+Rapport technique — Projet_3 : Avis et alertes MTL
+
+## 1. Qualités et faiblesses du code
+
+### Qualités :
+
+**Code bien organisé**
+
+Le projet est séparé en deux dossiers clairs : `backend/` pour le serveur
+et `frontend/` pour l'interface. Dans le backend, chaque fonctionnalité a
+son propre fichier dans `routes/` : les alertes dans `avisAlertes.js`,
+les abonnements dans `subscribe.js` et les notifications dans
+`notifications.js`. Cela rend le code facile à retrouver et à modifier.
+
+**Normalisation des données isolée**
+
+La fonction `mapAlerte()` dans `backend/utils/mapAlerte.js` s'occupe de
+transformer les données brutes de l'API de la Ville en un format utilisable
+par l'application. Si l'API de la Ville change ses noms de champs, on
+n'a qu'à modifier ce seul fichier.
+
+**Gestion des erreurs présente**
+
+Le backend retourne des messages d'erreur clairs avec les bons codes HTTP.
+Par exemple dans `subscribe.js`, si l'abonnement est invalide on retourne
+un code 400, et si l'abonnement n'existe pas on retourne un 404. Côté
+frontend, `useAlertes.js` affiche un message rouge si l'API ne répond pas.
+
+### Faiblesses :
+
+**Extraction de l'arrondissement fragile**
+
+Dans `backend/utils/mapAlerte.js`, la fonction `extraireArrondissement()`
+utilise une expression régulière pour lire le texte du titre et deviner
+l'arrondissement. Si la Ville change sa façon d'écrire les titres, cette
+fonction retournera "Non spécifié" pour toutes les alertes sans avertir.
+
+**Pas de tests automatisés**
+
+Il n'y a aucun test dans le projet. Si on modifie une fonction, on ne
+sait pas si on a cassé quelque chose ailleurs. C'est un risque surtout
+pour `mapAlerte.js` qui est utilisé partout.
+
+---
+
+## 2. Qualités et faiblesses de l'application
+
+### Qualités :
+
+**Interface claire et fonctionnelle**
+
+Les filtres par sujet et arrondissement avec les menus déroulants et les
+chips sont intuitifs. Le skeleton loader pendant le chargement et la
+bannière jaune quand l'utilisateur est hors-ligne donnent un bon retour
+visuel sur l'état de l'application.
+
+**Mode hors-ligne qui fonctionne**
+
+Grâce au service worker dans `public/sw.js`, l'application reste
+utilisable sans connexion. Les dernières alertes chargées restent
+visibles et on peut naviguer entre l'accueil et le détail d'une alerte.
+
+**Scores Lighthouse** 
+
+- Performance : 99
+- Accessibility : 87
+
+### Faiblesses :
+
+**Notifications iOS limitées**
+
+Sur iPhone, les notifications push ne fonctionnent que si l'application
+est installée sur l'écran d'accueil via Safari. Un utilisateur qui ouvre
+simplement le site dans son navigateur ne recevra pas de notifications.
+Cette limite n'est pas expliquée dans l'interface.
+
+**Pas de mise à jour automatique de la liste**
+
+Quand une nouvelle alerte est publiée par la Ville, l'utilisateur doit
+rafraîchir manuellement la page pour la voir. Il n'y a pas de système
+qui vérifie automatiquement les nouvelles alertes en arrière-plan.
+
+---
+
+## 3. Propositions d'améliorations
+
+1. Ajouter un cache côté serveur
+
+En ce moment, chaque fois qu'un utilisateur charge la page, le backend
+appelle l'API de la Ville. Si 100 personnes visitent le site en même temps,
+il y a 100 appels à l'API externe. On pourrait mettre en cache la réponse
+pendant 15 minutes dans le backend avec une librairie comme `node-cache`.
+Fichier à modifier : `backend/routes/avisAlertes.js`.
+
+2. Ajouter des tests automatisés 
+
+Ajouter des tests avec Jest pour vérifier que `extraireArrondissement()`
+fonctionne bien pour les cas courants comme "arrondissement de Montréal-Nord"
+ou un titre sans arrondissement. Cela éviterait de casser cette fonction
+sans s'en rendre compte lors d'une modification.
+Fichier concerné : `backend/utils/mapAlerte.js`.
+
+3. Expliquer les limites iOS dans la modale
+
+Ajouter un message dans `ModaleAbonnement.jsx` pour informer les
+utilisateurs iPhone qu'ils doivent d'abord installer l'application sur
+leur écran d'accueil avant de pouvoir recevoir des notifications. Cela
+éviterait la confusion quand le bouton S'abonner ne fonctionne pas
+comme attendu sur Safari mobile.
+Fichier à modifier : `frontend/src/components/ModaleAbonnement.jsx`.

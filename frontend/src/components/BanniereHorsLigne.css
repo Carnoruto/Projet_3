@@ -1,0 +1,17 @@
+.banniere-hors-ligne {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: #fff3cd;
+  color: #856404;
+  border: 1px solid #ffc107;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.banniere-icone {
+  font-size: 1.1rem;
+}

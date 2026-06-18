@@ -1,0 +1,33 @@
+.squelette {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.squelette-carte {
+  background: #fff;
+  border-radius: 8px;
+  padding: 1.2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+}
+
+.squelette-ligne {
+  height: 14px;
+  border-radius: 6px;
+  background: linear-gradient(90deg, #e8e8e8 25%, #f5f5f5 50%, #e8e8e8 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s infinite;
+}
+
+.squelette-ligne.large  { width: 70%; }
+.squelette-ligne.moyen  { width: 45%; }
+.squelette-ligne.court  { width: 25%; }
+
+@keyframes shimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}

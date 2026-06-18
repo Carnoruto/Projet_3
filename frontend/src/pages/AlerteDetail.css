@@ -1,0 +1,30 @@
+.alerte-detail {
+  background: white;
+  padding: 30px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  max-width: 700px;
+  margin: 40px auto;
+}
+
+.btn-retour {
+  display: inline-block;
+  margin-bottom: 20px;
+  text-decoration: none;
+  color: #0072ce;
+  font-weight: 600;
+}
+
+.alerte-detail h1 {
+  color: #003366;
+  margin-bottom: 15px;
+}
+
+.description {
+  margin-top: 20px;
+  padding: 15px;
+  background: #fafafa;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  line-height: 1.6;
+}

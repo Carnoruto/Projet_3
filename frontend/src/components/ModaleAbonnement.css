@@ -1,0 +1,93 @@
+.modale-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modale {
+  background: #fff;
+  border-radius: 12px;
+  padding: 2rem;
+  max-width: 460px;
+  width: 90%;
+  position: relative;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
+}
+
+.modale-fermer {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.1rem;
+  cursor: pointer;
+  color: #666;
+}
+
+.modale-fermer:hover { color: #000; }
+
+.modale h2 {
+  color: #003DA5;
+  margin-bottom: 0.75rem;
+}
+
+.modale-description {
+  color: #555;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+}
+
+.modale-message       { font-size: 0.9rem; margin-bottom: 1rem; }
+.modale-message.erreur { color: #721c24; }
+.modale-message.abonne { color: #155724; }
+
+.modale-erreur {
+  background: #fdecea;
+  border: 1px solid #f5c6cb;
+  color: #721c24;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  font-size: 0.88rem;
+}
+
+.modale-success {
+  color: #155724;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.btn-abonner-push {
+  background: #003DA5;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.7rem 1.5rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-abonner-push:hover { background: #002a75; }
+
+.btn-desabonner {
+  background: none;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 0.6rem 1.2rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  color: #555;
+  transition: border-color 0.2s;
+}
+
+.btn-desabonner:hover {
+  border-color: #003DA5;
+  color: #003DA5;
+}

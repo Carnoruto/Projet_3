@@ -1,0 +1,71 @@
+/* ------------------------------
+   RESET DE BASE
+------------------------------ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ------------------------------
+   TYPOGRAPHIE
+------------------------------ */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #fafafa;
+  color: #222;
+  line-height: 1.6;
+}
+
+/* ------------------------------
+   LIENS
+------------------------------ */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  opacity: 0.8;
+}
+
+/* ------------------------------
+   TITRES
+------------------------------ */
+h1, h2, h3 {
+  font-weight: 600;
+  color: #003366;
+}
+
+/* ------------------------------
+   CONTENEURS GLOBAUX
+------------------------------ */
+.container {
+  max-width: 900px;
+  margin: auto;
+  padding: 20px;
+}
+
+/* ------------------------------
+   BOUTONS GLOBAUX
+------------------------------ */
+button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 6px;
+  background-color: #003366;
+  color: white;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+button:hover {
+  background-color: #002244;
+}
+
+/* ------------------------------
+   INPUTS GLOBAUX
+------------------------------ */
+input, select {
+  font-size: 16px;
+}

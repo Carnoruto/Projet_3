@@ -1,0 +1,47 @@
+.filtres-actifs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  align-items: center;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: #003DA5;
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  padding: 0.35rem 0.8rem;
+  font-size: 0.82rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.chip:hover {
+  background: #002a75;
+}
+
+.chip-croix {
+  font-size: 0.75rem;
+  opacity: 0.8;
+}
+
+.btn-effacer-tout {
+  background: none;
+  border: 1px solid #aaa;
+  border-radius: 999px;
+  padding: 0.35rem 0.9rem;
+  font-size: 0.82rem;
+  color: #555;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.btn-effacer-tout:hover {
+  border-color: #003DA5;
+  color: #003DA5;
+}
